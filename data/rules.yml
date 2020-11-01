@@ -1,0 +1,37 @@
+version: "2.0"
+
+rules:
+- rule: activate quote form
+  steps: 
+  - intent: request_quote
+  - action: quote_form
+  - active_loop: quote_form
+
+- rule: submit quote form
+  condition: 
+  - active_loop: quote_form
+  steps:
+  - action: quote_form
+  - active_loop: null
+  - action: utter_submit
+  - action: utter_slot_values
+
+- rule: response to faq
+  steps: 
+  - intent: faq
+  - action: utter_faq
+
+- rule: response to chitchat
+  steps: 
+  - intent: chitchat
+  - action: utter_chitchat
+
+# - rule: Say goodbye anytime the user says goodbye
+#   steps:
+#   - intent: goodbye
+#   - action: utter_goodbye
+
+# - rule: Say 'I am a bot' anytime the user challenges
+#   steps:
+#   - intent: bot_challenge
+#   - action: utter_iama_bot

@@ -1,0 +1,79 @@
+version: "2.0"
+
+stories:
+  story: happy path 1
+  - user: |
+      hello there!
+    intent: greet 
+  - action: utter_greet
+  - user: |
+      amazing
+  - intent: utter_happy
+
+story: happy path 2
+  - user: |
+      hello there!
+    intent: greet 
+  - action: utter_greet
+  - user: |
+      amazing
+  - intent: utter_happy
+  - user: |
+      bye-bye!
+    inent: goodbye
+  - action: utter_goodbye
+
+story: sad path 1
+  - user: |
+      hello
+    intent: greet 
+  - action: utter_greet
+  - user: |
+      not good
+  - intent: utter_cheer_up
+  - intent: utter_did_that_help
+  - user: |
+      yes
+    intent: affirm
+  - action: utter_happy
+
+story: sad path 2
+  - user: |
+      hello
+    intent: greet 
+  - action: utter_greet
+  - user: |
+      not good
+  - intent: utter_cheer_up
+  - intent: utter_did_that_help
+  - user: |
+      not really
+    intent: deny
+  - action: utter_goodbye
+
+story: sad path 3
+  - user: |
+      hi
+    intent: greet 
+  - action: utter_greet
+  - user: |
+      very terrible
+  - intent: utter_cheer_up
+  - intent: utter_did_that_help
+  - user: |
+      no
+    intent: deny
+  - action: utter_goodbye
+
+story: goodbye
+  - user: |
+      bye-bye!
+    intent: goodbye
+  - action: utter_goodbye
+  
+
+story: bot challenge
+  - user: |
+      are you a bot?
+    intent: bot_challenge
+  - action: utter_iama_bot

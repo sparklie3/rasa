@@ -1,0 +1,153 @@
+version: "2.0"
+
+nlu:
+- intent: male
+  examples: |
+    - i'm a [guy](gender:male)
+    - most people consider me a guy [male](gender:male)
+    - i'm a [man](gender:male)
+- intent: female
+  examples: |
+    - [female](gender:female)
+    - i'm a [woman](gender:female)
+    - i'm a [gal](gender:female)
+
+- intent: request_quote
+  examples: |
+    - i'd like to buy some insurance
+    - I was born on [05/05/1985](date_of_birth)
+    - [022332000](date_of_birth:02/23/2000)
+    - how much do I have to pay to get life insurance?
+    - can i get a life insurance
+    - get a quote for life insurance
+    - how much does it cost to buy life insurance
+    - how do I get insurance coverage
+    - what can you help me do
+    - how can you help me get life insurance
+    - get insurance
+    - buy insurance
+
+- intent: stop
+  examples: |
+    - ok then you cant help me
+    - that was shit, you're not helping
+    - you can't help me
+    - you can't help me with what i need
+    - i guess you can't help me then
+    - ok i guess you can't help me
+    - that's not what i want
+    - ok, but that doesnt help me
+    - this is leading to nothing
+    - this conversation is not really helpful
+    - you cannot help me with what I want
+    - I think you cant help me
+    - hm i don't think you can do what i want
+    - stop
+    - stop go back
+    - do you get anything?
+    - and you call yourself bot company? pff
+    - and that's it?
+    - nothing else?
+
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+    
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: faq/ask_insurance
+  examples: |
+     - what type of insurance do you support?
+     - do you only sell life insurance?
+     - what kind of insurance do you sell?
+- intent: faq/ask_bot
+  examples: |
+    - what can you help me with?
+    - what can you do?
+    - I want to learn more about you
+- intent: chitchat/ask_you
+  examples: |
+    - can you share your boss with me?
+    - i want to get to know your owner
+    - i want to know the company which designed you
+- intent: chitchat/ask_weather
+  examples: |
+    - How is the weather today?
+    - What's the weather like?
+    - How is the weather?
