@@ -1,6 +1,98 @@
 version: "2.0"
 
 nlu:
+- intent: yes_to_position
+  examples: |
+    - Yes, I'm interested. Tell me more.
+    - This position sounds great. 
+    - Thanks for reaching out. I'm interested. 
+    - I'm interested, can you schedule time on my calendly link?
+- intent: no_to_contact_or_position
+  examples: |
+    - No, don't contact me
+    - Go away
+    - I'm not interested
+- intent: maybe
+  examples: |
+    - Yes, but not this position doesn't sound like the right one for me. 
+    - No, maybe later. Let's stay in touch
+    - I don't have experience in React. 
+    - I don't think I have the right experience for the role.
+    - Can you tell me who the company is?
+    - Can you send me more details, such as the job description to my email?
+- intent: no_resume_right_now
+    - I don't have one handy
+    - How do I sent you my resume if I don't have it right now?
+    - I can't upload. Where do you want me to send you my resume?
+    - Can I send you an an updated copy of my resume later 
+    - I don't have an updated copy of my resume, but give me a few days and I can create one. 
+- intent: yes_to_call
+    - Sure, I'm free this afternoon. 
+    - Sure, happy to chat. 
+    - I usually available in the afternoon between 2 and 4. 
+    - I can make time this Friday afternoon. 
+    - What's the best way to have a call? 
+    - how do I go schedule that call with you
+    - do you have an scheduling app
+    - are you available this afternoon
+- intent: career_exploration_change_jobs
+  examples: |
+    - i'm looking dabble in video production
+    - I'm looking to change to a new role in design
+    - I'm looking to transition to product management
+    - i want to get a job as a front-end engineer
+- intent: career_exploration_more_money
+  examples: | 
+    - i'm looking for more money
+    - I'm looking for something between $130K and $160K
+    - I need cash, not stock options that are worthless
+    - The role has to make at least $130K
+- intent: career_exploration_promotion
+  examples: |
+    - I'm looking more responsibility
+    - I'm looking for a managerial role.
+    - I want to go into management. 
+- intent: career_exploration_more_stability
+  examples: |
+    - get me out of this hell hole
+    - there's been lots of layoffs recently
+    - we're running out of cash
+    - I need a pandemic proof job
+    - there's been too much turnover
+    - the moral is really low
+    - Lots of people are leaving and I'm thinking about it too
+- intent: career_exploration_less_bureaucracy
+  examples: |
+    - I want to try to see what a startup is like
+    - I'm looking to join a smaller company where I have more impact
+    - I'm looking for a boss who doesn't micromanage me
+    - I want more responsibility
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+ 
+
+
+
+
+
+
+
 - intent: male
   examples: |
     - i'm a [guy](gender:male)
@@ -79,23 +171,6 @@ nlu:
     - bye bye
     - see you later
 
-- intent: affirm
-  examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
-
-- intent: deny
-  examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
     
 - intent: mood_great
   examples: |

@@ -2,6 +2,15 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
+- yes_to_position
+- no_to_contact_or_position
+- maybe
+- no_resume_right_now
+- yes_to_call
+- career_exploration_change_jobs
+- career_exploration_more_money
+- career_exploration_more_stability
+- career_exploration_less_bureaucracy
 - male
 - female
 - request_quote
@@ -91,6 +100,42 @@ slots:
     - wi
     - wy
 responses:
+utter_schedule_call:
+  - text: Great, how about this afternoon @ 3 pm EST time?
+  - text: Can we hope on a call?
+  - text: When might you be available to chat for 10 minutes?
+utter_submit_resume:
+  - text: Great. To move to the next, do you have a resume you can provide? 
+  - text: Awesome, I've love to schedule a call, but do you have a resume I can take a look at?
+  - text: Is there a resume that can complement your LinkedIn?
+utter_wait_for_resume:
+  - text: Sure, I'll wait for your resume. You can send it to abc@gmail.com
+  - text: Sure, send me your resume when you are ready. 
+  - text: Sure, let me know whne you're ready to submit it. 
+utter_ignore_resume:
+  - text: That'a okay.
+  - text: It's okay if you don't have one handy.
+  - text: We can worry about it later. 
+utter_career_exploration:
+  - text: What are you looking to do next?
+  - text: If money was no object, what would you do?
+  - text: What excites you right now
+  - text: If this isn’t a right role, what would your ideal role look like?
+  - text: What are companies you’re actively recruiting with?
+  - text: What would make you move roles?  
+
+
+
+
+
+
+
+
+
+
+
+
+
   utter_stop:
   - text: Sorry. I tried my best, but I'm still learning.
   utter_greet:
