@@ -21,12 +21,14 @@ nlu:
     - Can you tell me who the company is?
     - Can you send me more details, such as the job description to my email?
 - intent: no_resume_right_now
+  examples: |
     - I don't have one handy
     - How do I sent you my resume if I don't have it right now?
     - I can't upload. Where do you want me to send you my resume?
     - Can I send you an an updated copy of my resume later 
     - I don't have an updated copy of my resume, but give me a few days and I can create one. 
 - intent: yes_to_call
+  examples: |
     - Sure, I'm free this afternoon. 
     - Sure, happy to chat. 
     - I usually available in the afternoon between 2 and 4. 
@@ -35,24 +37,24 @@ nlu:
     - how do I go schedule that call with you
     - do you have an scheduling app
     - are you available this afternoon
-- intent: career_exploration_change_jobs
+- intent: career_exploration/change_jobs
   examples: |
-    - i'm looking dabble in video production
+    - i'm looking to dabble in video production
     - I'm looking to change to a new role in design
     - I'm looking to transition to product management
     - i want to get a job as a front-end engineer
-- intent: career_exploration_more_money
-  examples: | 
+- intent: career_exploration/more_money
+  examples: |
     - i'm looking for more money
     - I'm looking for something between $130K and $160K
     - I need cash, not stock options that are worthless
     - The role has to make at least $130K
-- intent: career_exploration_promotion
+- intent: career_exploration/promotion
   examples: |
     - I'm looking more responsibility
     - I'm looking for a managerial role.
     - I want to go into management. 
-- intent: career_exploration_more_stability
+- intent: career_exploration/more_stability
   examples: |
     - get me out of this hell hole
     - there's been lots of layoffs recently
@@ -61,12 +63,19 @@ nlu:
     - there's been too much turnover
     - the moral is really low
     - Lots of people are leaving and I'm thinking about it too
-- intent: career_exploration_less_bureaucracy
+- intent: career_exploration/less_bureaucracy
   examples: |
     - I want to try to see what a startup is like
     - I'm looking to join a smaller company where I have more impact
     - I'm looking for a boss who doesn't micromanage me
     - I want more responsibility
+- intent: career_exploration/general
+  examples: |
+    - I'm not interested in this position, but I would like to know more about other positions you think I would be a good fit for
+    - I don't think this is the right job, do you have something else for this company?
+    - Thanks, but no thanks. I'm looking for something different.
+    - I'm not sure I'm qualified for this position.
+
 
 - intent: affirm
   examples: |

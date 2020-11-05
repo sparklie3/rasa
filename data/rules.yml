@@ -26,6 +26,11 @@ rules:
   - intent: chitchat
   - action: utter_chitchat
 
+- rule: response to career exploration
+  steps:
+  - intent: career_exploration
+  - action: utter_career_exploration
+
 # - rule: Say goodbye anytime the user says goodbye
 #   steps:
 #   - intent: goodbye

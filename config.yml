@@ -19,6 +19,9 @@ pipeline:
   - name: ResponseSelector
     retrieval_intent: chitchat  
     epochs: 100
+  - name: ResponseSelector
+    retrieval_intent: career_exploration  
+    epochs: 100
 
 # Configuration for Rasa Core.
 # https://rasa.com/docs/rasa/core/policies/

@@ -4,36 +4,34 @@ stories:
 - story: yes, interest in position to schedule call
   steps: 
     # start an action by the bot
-    intent: yes_to_position
-    action: utter_schedule_call
-    intent: yes_to_call
+  - intent: yes_to_position
+  - action: utter_schedule_call
+  - intent: yes_to_call
     # custom action to pull up calendly to make scheduling possible in the chatbot
 
 - story: yes, interest in position and obtained resume
   steps: 
     # start an action by the bot
-    intent: yes_to_position
-    action: utter_submit_resume # custom action receive upload file
+  - intent: yes_to_position
+  - action: utter_submit_resume # custom action receive upload file
 
 - story: yes, interest in position and don't have resume right now, wait for resume
   steps: 
     # start an action by the bot
-    intent: yes_to_position
-    action: utter_submit_resume # custom action receive upload file
-    intent: no_resume_right_now
-    action: utter_wait_for_resume
+  - intent: yes_to_position
+  - action: utter_submit_resume # custom action receive upload file
+  - intent: no_resume_right_now
+  - action: utter_wait_for_resume
 
 - story: yes, interest in position and don't have resume right now
   steps: 
     # start an action by the bot
-    intent: yes_to_position
-    action: utter_submit_resume # custom action receive upload file
-    intent: no_resume_right_now
-    action: utter_ignore_resume
-    action: utter_schedule_call
+  - intent: yes_to_position
+  - action: utter_submit_resume # custom action receive upload file
+  - intent: no_resume_right_now
+  - action: utter_ignore_resume
+  - action: utter_schedule_call
     
-
-
 
 
 
