@@ -1,11 +1,10 @@
 version: "2.0"
-
 nlu:
 - intent: yes_to_position
   examples: |
     - Yes, I'm interested. Tell me more.
-    - This position sounds great. 
-    - Thanks for reaching out. I'm interested. 
+    - This position sounds great.
+    - Thanks for reaching out. I'm interested.
     - I'm interested, can you schedule time on my calendly link?
 - intent: no_to_contact_or_position
   examples: |
@@ -14,9 +13,9 @@ nlu:
     - I'm not interested
 - intent: maybe
   examples: |
-    - Yes, but not this position doesn't sound like the right one for me. 
+    - Yes, but not this position doesn't sound like the right one for me.
     - No, maybe later. Let's stay in touch
-    - I don't have experience in React. 
+    - I don't have experience in React.
     - I don't think I have the right experience for the role.
     - Can you tell me who the company is?
     - Can you send me more details, such as the job description to my email?
@@ -25,15 +24,15 @@ nlu:
     - I don't have one handy
     - How do I sent you my resume if I don't have it right now?
     - I can't upload. Where do you want me to send you my resume?
-    - Can I send you an an updated copy of my resume later 
-    - I don't have an updated copy of my resume, but give me a few days and I can create one. 
+    - Can I send you an an updated copy of my resume later
+    - I don't have an updated copy of my resume, but give me a few days and I can create one.
 - intent: yes_to_call
   examples: |
-    - Sure, I'm free this afternoon. 
-    - Sure, happy to chat. 
-    - I usually available in the afternoon between 2 and 4. 
-    - I can make time this Friday afternoon. 
-    - What's the best way to have a call? 
+    - Sure, I'm free this afternoon.
+    - Sure, happy to chat.
+    - I usually available in the afternoon between 2 and 4.
+    - I can make time this Friday afternoon.
+    - What's the best way to have a call?
     - how do I go schedule that call with you
     - do you have an scheduling app
     - are you available this afternoon
@@ -53,7 +52,7 @@ nlu:
   examples: |
     - I'm looking more responsibility
     - I'm looking for a managerial role.
-    - I want to go into management. 
+    - I want to go into management.
 - intent: career_exploration/more_stability
   examples: |
     - get me out of this hell hole
@@ -75,8 +74,6 @@ nlu:
     - I don't think this is the right job, do you have something else for this company?
     - Thanks, but no thanks. I'm looking for something different.
     - I'm not sure I'm qualified for this position.
-
-
 - intent: affirm
   examples: |
     - yes
@@ -85,7 +82,6 @@ nlu:
     - of course
     - that sounds good
     - correct
-
 - intent: deny
   examples: |
     - no
@@ -94,40 +90,6 @@ nlu:
     - I don't think so
     - don't like that
     - no way
- 
-
-
-
-
-
-
-
-- intent: male
-  examples: |
-    - i'm a [guy](gender:male)
-    - most people consider me a guy [male](gender:male)
-    - i'm a [man](gender:male)
-- intent: female
-  examples: |
-    - [female](gender:female)
-    - i'm a [woman](gender:female)
-    - i'm a [gal](gender:female)
-
-- intent: request_quote
-  examples: |
-    - i'd like to buy some insurance
-    - I was born on [05/05/1985](date_of_birth)
-    - [022332000](date_of_birth:02/23/2000)
-    - how much do I have to pay to get life insurance?
-    - can i get a life insurance
-    - get a quote for life insurance
-    - how much does it cost to buy life insurance
-    - how do I get insurance coverage
-    - what can you help me do
-    - how can you help me get life insurance
-    - get insurance
-    - buy insurance
-
 - intent: stop
   examples: |
     - ok then you cant help me
@@ -149,7 +111,6 @@ nlu:
     - and you call yourself bot company? pff
     - and that's it?
     - nothing else?
-
 - intent: greet
   examples: |
     - hey
@@ -165,7 +126,6 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
-
 - intent: goodbye
   examples: |
     - good afternoon
@@ -179,9 +139,7 @@ nlu:
     - see you around
     - bye bye
     - see you later
-
-    
-- intent: mood_great
+- intent: mood_happy
   examples: |
     - perfect
     - great
@@ -197,7 +155,6 @@ nlu:
     - so so perfect
     - so good
     - so perfect
-    
 - intent: mood_unhappy
   examples: |
     - my day was horrible
@@ -214,24 +171,8 @@ nlu:
     - extremly sad
     - so saad
     - so sad
-
-- intent: faq/ask_insurance
-  examples: |
-     - what type of insurance do you support?
-     - do you only sell life insurance?
-     - what kind of insurance do you sell?
-- intent: faq/ask_bot
+- intent: faq
   examples: |
     - what can you help me with?
     - what can you do?
     - I want to learn more about you
-- intent: chitchat/ask_you
-  examples: |
-    - can you share your boss with me?
-    - i want to get to know your owner
-    - i want to know the company which designed you
-- intent: chitchat/ask_weather
-  examples: |
-    - How is the weather today?
-    - What's the weather like?
-    - How is the weather?

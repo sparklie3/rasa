@@ -1,3 +1,5 @@
+from transformers import pipeline
+
 from typing import Any, Dict, List, Text, Union
 
 from rasa_sdk import Action, Tracker
@@ -29,4 +31,4 @@ class action_validate_state(Action):
         return "action_validate_state"
 
     
-  
+

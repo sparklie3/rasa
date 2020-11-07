@@ -8,95 +8,18 @@ intents:
 - no_resume_right_now
 - yes_to_call
 - career_exploration
-- male
-- female
-- request_quote
+- affirm
+- deny
 - stop
 - greet
 - goodbye
-- affirm
-- deny
-- mood_great
+- mood_happy
 - mood_unhappy
-- chitchat
 - faq
-entities:
-- date_of_birth
-- gender
-- nicotine
-- state_abbrev
-slots:
-  date_of_birth:
-    type: text
-    auto_fill: false
-    influence_conversation: false
-  gender:
-    type: text
-    auto_fill: false
-    influence_conversation: true
-  nicotine:
-    type: text
-    auto_fill: false
-    influence_conversation: false
-  requested_slot:
-    type: unfeaturized
-    influence_conversation: false
-  state_abbrev:
-    type: categorical
-    influence_conversation: false
-    values:
-    - al
-    - ak
-    - az
-    - ar
-    - ca
-    - co
-    - ct
-    - dc
-    - de
-    - fl
-    - ga
-    - hi
-    - id
-    - il
-    - in
-    - ia
-    - ks
-    - ky
-    - la
-    - me
-    - md
-    - ma
-    - mi
-    - mn
-    - ms
-    - mo
-    - mt
-    - ne
-    - nv
-    - nh
-    - nj
-    - nm
-    - ny
-    - nc
-    - nd
-    - oh
-    - ok
-    - or
-    - pa
-    - ri
-    - sc
-    - sd
-    - tn
-    - tx
-    - ut
-    - vt
-    - va
-    - wa
-    - wv
-    - wi
-    - wy
 responses:
+  utter_greet:
+  - text: Hi there! I'm a chatbot that can help you be a better recruiter. How are
+      you?
   utter_schedule_call:
   - text: Great, how about this afternoon @ 3 pm EST time?
   - text: Can we hope on a call?
@@ -135,13 +58,10 @@ responses:
   - text: So you're looking for a smaller company. Anything else?
   utter_stop:
   - text: Sorry. I tried my best, but I'm still learning.
-  utter_greet:
-  - text: Hi, I'm a life insurance bot. How are you?
   utter_goodbye:
-  - text: Okay. I'll go now.Bye!
+  - text: Okay. I'll go now. Bye!
   utter_happy:
-  - text: Great to hear your in a good mood. I'm here to do one thing, which is help
-      you get a life insurance quote.
+  - text: Great to hear your in a good mood?
   utter_unhappy:
   - text: Sorry to hear your unhappy. Maybe I can still help you to get a life insurance
       quote.
@@ -151,60 +71,5 @@ responses:
   - text: Did that help?
   utter_ask_continue:
   - text: Do you want to continue?
-  utter_ask_date_of_birth:
-  - text: What is your date of birth in MM/DD/YYYY format?
-  utter_submit:
-  - text: Thanks for answering my questions.
-  utter_faq/ask_insurance:
-  - text: I focuse on term life insurance.
-  - text: At this time, I can only tell you about term life insurance.
-  utter_faq/ask_bot:
-  - text: Hi. I'm an life insurance quote robot. I can help you learn about term life
-      insurance and get a quote.
-  utter_chitchat/ask_you:
-  - image: https://i.imgur.com/zTvA58i.jpeg
-    text: I'm doing well. My job is a life insurance quote robot.
-  - text: I'm good. I am a life insurance quote robot.
-  utter_chitchat/ask_weather:
-  - image: https://i.imgur.com/vwv7aHN.png
-    text: Oh, it does look sunny right now in Berlin.
-  - text: I am not sure of the whole week but I can see the sun is out today.
-  utter_ask_gender:
-  - text: Is your gender male or female?
-  utter_ask_nicotine:
-  - text: Do you smoke cigrates or use nicotine products?
-  utter_ask_state:
-  - text: What U.S. state do you live in? We need to know because term life insurance
-      prices can very based on insurance state.
-  utter_ask_coverage_amount:
-  - text: How much coverage do you want? We provide coverage quotes from $25,000 to
-      $500,000.
-  utter_ask_coverage_length:
-  - text: How many years of coverage do you want? You can select from 10, 15, 20,
-      or 30 years.
-  utter_slot_values:
-  - text: "I'm going to run a term insurance quote search based on what I learned:\n\
-      \ - date of birth: {date_of_birth} \n - gender: {gender} \n - nicotine: {nicotine}\
-      \ \n - states: {states} \n - coverage_amount: {coverage_amount} \n - coverage_length:\
-      \ {coverage_length}"
-forms:
-  quote_form:
-    date_of_birth:
-    - entity: date_of_birth
-      type: from_entity
-    gender:
-    - intent: male
-      type: from_intent
-      value: male
-    - intent: female
-      type: from_intent
-      value: female
-    nicotine:
-    - entity: affirm
-      type: from_intent
-      value: true
-    - entity: deny
-      type: from_intent
-      value: false
-    state_abbrev:
-    - type: text
+  utter_faq:
+  - text: I can help you write better emails to candidates.
