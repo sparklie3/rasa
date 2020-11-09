@@ -14,14 +14,17 @@ pipeline:
     epochs: 100
   - name: EntitySynonymMapper
   - name: ResponseSelector
-    retrieval_intent: faq
-    epochs: 100
-  - name: ResponseSelector
-    retrieval_intent: chitchat  
-    epochs: 100
-  - name: ResponseSelector
     retrieval_intent: career_exploration  
     epochs: 100
+  - name: HFTransformersNLP
+    # Name of the language model to use
+    model_name: "gpt2"
+    # Pre-Trained weights to be loaded
+    model_weights: "gpt2"
+
+    # An optional path to a specific directory to download and cache the pre-trained model weights.
+    # The `default` cache_dir is the same as https://huggingface.co/transformers/serialization.html#cache-directory .
+    cache_dir: null  
 
 # Configuration for Rasa Core.
 # https://rasa.com/docs/rasa/core/policies/

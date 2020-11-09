@@ -1,42 +1,26 @@
 version: "2.0"
-
-rules:
-- rule: activate quote form
-  steps: 
-  - intent: request_quote
-  - action: quote_form
-  - active_loop: quote_form
-
-- rule: submit quote form
-  condition: 
-  - active_loop: quote_form
+stories:
+- story: Story from Conversation ID 1c6242f9c13c4790b9869352a01f88d8
   steps:
-  - action: quote_form
-  - active_loop: null
-  - action: utter_submit
-  - action: utter_slot_values
-
-- rule: response to faq
-  steps: 
+  - intent: greet
+  - action: utter_greet
   - intent: faq
   - action: utter_faq
-
-- rule: response to chitchat
-  steps: 
-  - intent: chitchat
-  - action: utter_chitchat
-
+rules:
+- rule: welcome user
+  conversation_start: true
+  steps:
+  - intent: greet
+  - action: utter_greet
 - rule: response to career exploration
   steps:
   - intent: career_exploration
   - action: utter_career_exploration
-
-# - rule: Say goodbye anytime the user says goodbye
-#   steps:
-#   - intent: goodbye
-#   - action: utter_goodbye
-
-# - rule: Say 'I am a bot' anytime the user challenges
-#   steps:
-#   - intent: bot_challenge
-#   - action: utter_iama_bot
+- rule: response to faq
+  steps:
+  - intent: faq
+  - action: utter_faq
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
