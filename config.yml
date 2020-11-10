@@ -1,36 +1,27 @@
-# Configuration for Rasa NLU.
-# https://rasa.com/docs/rasa/nlu/components/
 language: en
 pipeline:
-  - name: WhitespaceTokenizer
-  - name: RegexFeaturizer
-  - name: LexicalSyntacticFeaturizer
-  - name: CountVectorsFeaturizer
-  - name: CountVectorsFeaturizer
-    analyzer: "char_wb"
-    min_ngram: 1
-    max_ngram: 4
-  - name: DIETClassifier
-    epochs: 100
-  - name: EntitySynonymMapper
-  - name: ResponseSelector
-    retrieval_intent: career_exploration  
-    epochs: 100
-  - name: HFTransformersNLP
-    # Name of the language model to use
-    model_name: "gpt2"
-    # Pre-Trained weights to be loaded
-    model_weights: "gpt2"
-
-    # An optional path to a specific directory to download and cache the pre-trained model weights.
-    # The `default` cache_dir is the same as https://huggingface.co/transformers/serialization.html#cache-directory .
-    cache_dir: null  
-
-# Configuration for Rasa Core.
-# https://rasa.com/docs/rasa/core/policies/
+- name: WhitespaceTokenizer
+  intent_tokenization_flag: true
+  intent_split_symbol: +
+- name: RegexFeaturizer
+- name: LexicalSyntacticFeaturizer
+- name: CountVectorsFeaturizer
+  analyzer: char_wb
+  min_ngram: 1
+  max_ngram: 4
+- name: DIETClassifier
+  epochs: 100
+- name: EntitySynonymMapper
+- name: ResponseSelector
+  retrieval_intent: career_exploration
+  epochs: 100
+- name: HFTransformersNLP
+  model_name: gpt2
+  model_weights: gpt2
+  cache_dir:
 policies:
-  - name: MemoizationPolicy
-  - name: TEDPolicy
-    max_history: 1
-    epochs: 100
-  - name: RulePolicy
+- name: MemoizationPolicy
+- name: TEDPolicy
+  max_history: 1
+  epochs: 100
+- name: RulePolicy

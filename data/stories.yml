@@ -1,6 +1,13 @@
 version: "2.0"
 
 stories: 
+- story: are you interested in this position
+  steps:
+    # start an action by the bot
+  - intent: change_jobs+more_money
+    # custom action to respond
+  - action: action_find_career_response
+
 - story: yes, interest in position to schedule call
   steps: 
     # start an action by the bot

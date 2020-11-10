@@ -16,6 +16,7 @@ intents:
 - mood_happy
 - mood_unhappy
 - faq
+- change_jobs+more_money
 responses:
   utter_greet:
   - text: Hi there! I'm a chatbot that can help you be a better recruiter. How are
@@ -56,6 +57,8 @@ responses:
   - text: So you're looking for a larger company. Anything else?
   utter_career_exploration/less_bureaucracy:
   - text: So you're looking for a smaller company. Anything else?
+  utter_affirm_career_move_follow_up:
+  - text: Got it. I think I know
   utter_stop:
   - text: Sorry. I tried my best, but I'm still learning.
   utter_goodbye:
@@ -73,3 +76,6 @@ responses:
   - text: Do you want to continue?
   utter_faq:
   - text: I can help you write better emails to candidates.
+actions:
+  - action_find_career_response
+  - ActionCheckRestaurants

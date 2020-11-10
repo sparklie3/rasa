@@ -1,34 +1,30 @@
-from transformers import pipeline
+# from transformers import pipeline, AutoTokenizer, AutoModelWithLMHead
+
+# tokenizer = AutoTokenizer.from_pretrained("gpt2")
+
+# model = AutoModelWithLMHead.from_pretrained("gpt2")
 
 from typing import Any, Dict, List, Text, Union
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.forms import FormAction
-import us_state_abbrev
+from rasa_sdk.events import SlotSet
 
-class quote_form(FormAction):
+
+# Respond with a career response
+class action_find_career_response(Action):
+    # def name(self) -> Text:
     def name(self):
-        return "quote_form"
+        return "action_find_career_response"
 
-@staticmethod
-    def required_slots(tracker):
-        if tracker.get_slot('states_abbrev')
-        # return ["date_of_birth","gender","nicotine","states","coverage_amount","coverage_length"]
-        return ["date_of_birth","gender","nicotine","state_abbrev"]
-  
-@staticmethod
-    # what happens after all the form data is filled
-    def submit(self,dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict]:
-        dispatcher.utter_message("Thanks, great job!")
+    def run(self,
+        dispatcher: CollectingDispatcher,
+        tracker: "Tracker",
+        domain: Dict[Text, Any]):
+
+        bot = ("Reaching out to a human agent")
+        dispatcher.utter_message(bot)
+
+        dispatcher.utter_message("say hello")
         return []
-
-
-# check if the state user is getting quote is supported
-
-class action_validate_state(Action):
-    def name(self):
-        return "action_validate_state"
-
-    
 
