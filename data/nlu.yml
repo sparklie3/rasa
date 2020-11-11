@@ -74,6 +74,11 @@ nlu:
     - I don't think this is the right job, do you have something else for this company?
     - Thanks, but no thanks. I'm looking for something different.
     - I'm not sure I'm qualified for this position.
+- intent: change_jobs+more_money
+  examples: |
+    - I'm looking to change a new role in design. I'm looking for a salary in the range of 120K to 140K.
+    - I'm looking to transition to product management so I can make more money.
+    - I don't like my current role and I'm underpaid. Show me the money.
 - intent: affirm
   examples: |
     - yes
