@@ -8,3 +8,4 @@ rasa.db-shm
 rasa.db-wal
 /results
 /data/nlg_nlu.yml
+/data/total_word_feature_extractor.dat

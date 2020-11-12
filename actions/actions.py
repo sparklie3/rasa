@@ -35,7 +35,7 @@ class action_find_career_response(Action):
         # dispatcher.utter_message(message) #return as response
         # return []
         return [slot] #return as event
-
+        
 class generate_text(Action):
     def name(self)-> Text:
         return "action_generate_text"

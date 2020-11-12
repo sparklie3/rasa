@@ -1,13 +1,13 @@
 version: "2.0"
 
 stories: 
-- story: return generated text
-  steps:
-    - intent: change_jobs+more_money
-    - action: action_find_career_response
-    - intent: affirm
-    - action: action_generate_text
-    - action: utter_generated_text
+# - story: return generated text
+#   steps:
+#     - intent: change_jobs+more_money
+#     - action: action_find_career_response
+#     - intent: affirm
+#     - action: action_generate_text
+#     - action: utter_generated_text
 
 - story: are you interested in this position
   steps:
@@ -37,6 +37,55 @@ stories:
   - action: utter_submit_resume # custom action receive upload file
   - intent: no_resume_right_now
   - action: utter_wait_for_resume
+
+
+# - story: activate form for career exploration
+#   steps:
+#   - intent: career_exploration
+#   - action: career_exploration_form
+#   - active_loop: career_exploration_form
+#   - action: utter_career_exploration/general
+#   - intent: yes_to_position
+#   - action: utter_affirm_career_move_follow_up
+#   - intent: career_exploration/more_money
+#   - action: utter_goodbye
+
+# - story: complete career exploration
+#   condition:
+#   # Condition that form is active.
+#   - active_loop: career_exploration_form
+#   steps:
+#   # Form is deactivated
+#   - action: career_exploration_form
+#   - active_loop: null
+#   - slot_was_set:
+#     - requested_slot: null
+#   # The actions we want to run when the form is submitted.
+#   - action: utter_career_exploration_complete
+
+
+- story: general career exploration
+  steps:
+  - intent: career_exploration/change_role
+  - action: utter_career_exploration/change_role
+  - intent: affirm
+  - action: utter_affirm_career_move_follow_up
+
+- story: general career exploration
+  steps:
+  - intent: career_exploration/change_role
+  - action: utter_career_exploration/change_role
+  - intent: deny
+  # - action: utter_affirm_career_move_follow_up
+
+- story: general career exploration
+  steps:
+  - intent: career_exploration/change_role
+  - action: utter_career_exploration/change_role
+  - intent: affirm
+  - action: utter_affirm_career_move_follow_up
+  - intent: career_exploration
+  - action: utter_career_exploration
 
 - story: yes, interest in position and don't have resume right now
   steps: 
@@ -73,3 +122,25 @@ stories:
   - action: utter_did_that_help
   - intent: deny
   - action: utter_goodbye
+
+- story: Story from Conversation ID 1c6242f9c13c4790b9869352a01f88d8
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: faq
+  - action: utter_faq
+- story: Story from Conversation ID d7a4b24f3fd845858789c3c7bf75ce2e
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: greet
+  - action: utter_greet_again
+- story: Story from Conversation ID 9d5e0f7fde964b9993f46a7acf645841
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_happy
+  - action: utter_happy
+  - intent: faq
+  - action: utter_faq
+  
