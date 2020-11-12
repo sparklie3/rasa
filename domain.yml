@@ -17,7 +17,16 @@ intents:
 - mood_unhappy
 - faq
 - change_jobs+more_money
+slots:
+  option1:
+    type: text
+    influence_conversation: false
+  test_memory:
+    type: text
+    influence_conversation: false
 responses:
+  utter_generated_text:
+  - text: This is what's an generated - {option1}
   utter_greet:
   - text: Hi there! I'm a chatbot that can help you be a better recruiter. How are
       you?
@@ -76,6 +85,8 @@ responses:
   - text: Do you want to continue?
   utter_faq:
   - text: I can help you write better emails to candidates.
+  utter_slot:
+  - text: say this in {test_memory}
 actions:
-  - action_find_career_response
-  - ActionCheckRestaurants
+- action_find_career_response
+- action_generate_text

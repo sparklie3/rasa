@@ -12,13 +12,13 @@ pipeline:
 - name: DIETClassifier
   epochs: 100
 - name: EntitySynonymMapper
-- name: ResponseSelector
-  retrieval_intent: career_exploration
-  epochs: 100
-- name: HFTransformersNLP
-  model_name: gpt2
-  model_weights: gpt2
-  cache_dir:
+# - name: ResponseSelector
+#   retrieval_intent: career_exploration
+#   epochs: 100
+# - name: HFTransformersNLP
+#   model_name: gpt2
+#   model_weights: gpt2
+#   cache_dir:
 policies:
 - name: MemoizationPolicy
 - name: TEDPolicy

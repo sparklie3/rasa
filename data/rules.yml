@@ -12,10 +12,10 @@ rules:
   steps:
   - intent: greet
   - action: utter_greet
-- rule: response to career exploration
-  steps:
-  - intent: career_exploration
-  - action: utter_career_exploration
+# - rule: response to career exploration
+#   steps:
+#   - intent: career_exploration
+#   - action: utter_career_exploration
 - rule: response to faq
   steps:
   - intent: faq
