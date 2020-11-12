@@ -23,7 +23,7 @@ pipeline:
   # dimensions to extract
   dimensions: ["PERSON"]
   case_sensitive: False
-- name: "DucklingHTTPExtractor"
+- name: "DucklingEntityExtractor"
   # url of the running duckling server
   url: "http://localhost:8000"
   # dimensions to extract

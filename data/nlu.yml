@@ -2,7 +2,7 @@ version: "2.0"
 nlu:
 - intent: yes_to_position
   examples: |
-    - Yes, I'm interested. Tell me more. I have a salary minimum salary requirement of $100K
+    - Yes, I'm interested. Tell me more. I have a salary minimum salary requirement of [$100K]{"entity":"amount-of-money"}
     - This position sounds great.
     - Thanks for reaching out. I'm interested.
     - I'm interested, can you schedule time on my calendly link?
@@ -48,9 +48,9 @@ nlu:
 - intent: career_exploration/more_money
   examples: |
     - i'm looking for more money
-    - I'm looking for something between $130K and $160K
+    - I'm looking for something between [$130K]{"entity":"amount-of-money"} and [$160K]{"entity":"amount-of-money"}
     - I need cash, not stock options that are worthless
-    - The role has to make at least $130K
+    - The role has to make at least [$130K]{"entity":"amount-of-money"}
 - intent: career_exploration/promotion
   examples: |
     - I'm looking more responsibility
