@@ -1,21 +1,27 @@
 version: "2.0"
 stories:
-- story: Story from Conversation ID 1c6242f9c13c4790b9869352a01f88d8
+- story: Story from Conversation ID 240e0e7233b44a439d340cc93b346c48
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: faq
-  - action: utter_faq
+  - intent: career_exploration
+  - action: career_exploration_form
+  - active_loop: career_exploration_form
+  - slot_was_set:
+    - requested_slot: target_large_company
+- story: Story from Conversation ID 9b479e33229f40f8bca35d2adb65af55
+  steps:
+  - intent: career_exploration_smaller_company
+  - action: career_exploration_form
+  - active_loop: career_exploration_form
+  - slot_was_set:
+    - active_looking: true
+  - slot_was_set:
+    - requested_slot: target_large_company
 rules:
 - rule: welcome user
   conversation_start: true
   steps:
   - intent: greet
   - action: utter_greet
-- rule: response to career exploration
-  steps:
-  - intent: career_exploration
-  - action: utter_career_exploration
 - rule: response to faq
   steps:
   - intent: faq

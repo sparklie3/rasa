@@ -1,52 +1,62 @@
 version: "2.0"
-
-stories: 
+stories:
 - story: are you interested in this position
   steps:
-    # start an action by the bot
   - intent: change_jobs+more_money
-    # custom action to respond
   - action: action_find_career_response
-
 - story: yes, interest in position to schedule call
-  steps: 
-    # start an action by the bot
+  steps:
   - intent: yes_to_position
   - action: utter_schedule_call
   - intent: yes_to_call
-    # custom action to pull up calendly to make scheduling possible in the chatbot
-
 - story: yes, interest in position and obtained resume
-  steps: 
-    # start an action by the bot
+  steps:
   - intent: yes_to_position
-  - action: utter_submit_resume # custom action receive upload file
-
+  - action: utter_submit_resume
 - story: yes, interest in position and don't have resume right now, wait for resume
-  steps: 
-    # start an action by the bot
+  steps:
   - intent: yes_to_position
-  - action: utter_submit_resume # custom action receive upload file
-  - intent: no_resume_right_now
+  - action: utter_submit_resume
+  - intent: no_to_resume
   - action: utter_wait_for_resume
-
+- story: activate form for career exploration
+  steps:
+  - intent: career_exploration_general
+  - action: career_exploration_form
+  - active_loop: career_exploration_form
+- story: general career exploration
+  steps:
+  - intent: career_exploration/change_role
+  - action: utter_career_exploration/change_role
+  - intent: affirm
+  - action: utter_affirm_career_move_follow_up
+- story: general career exploration
+  steps:
+  - intent: career_exploration/change_role
+  - action: utter_career_exploration/change_role
+  - intent: deny
+- story: general career exploration
+  steps:
+  - intent: career_exploration/change_role
+  - action: utter_career_exploration/change_role
+  - intent: affirm
+  - action: utter_affirm_career_move_follow_up
+  - intent: career_exploration
+  - action: utter_career_exploration
 - story: yes, interest in position and don't have resume right now
-  steps: 
-    # start an action by the bot
+  steps:
   - intent: yes_to_position
-  - action: utter_submit_resume # custom action receive upload file
+  - action: utter_submit_resume
   - intent: no_resume_right_now
   - action: utter_ignore_resume
   - action: utter_schedule_call
-
 - story: greet and confirm happy
   steps:
   - intent: greet
   - action: utter_greet
   - intent: mood_happy
   - action: utter_happy
-
-- story: greet and make happy 
+- story: greet and make happy
   steps:
   - intent: greet
   - action: utter_greet
@@ -55,7 +65,6 @@ stories:
   - action: utter_did_that_help
   - intent: affirm
   - action: utter_happy
-
 - story: greet, confirm sad and say goodbye
   steps:
   - intent: greet
@@ -65,3 +74,23 @@ stories:
   - action: utter_did_that_help
   - intent: deny
   - action: utter_goodbye
+- story: Story from Conversation ID 1c6242f9c13c4790b9869352a01f88d8
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: faq
+  - action: utter_faq
+- story: Story from Conversation ID d7a4b24f3fd845858789c3c7bf75ce2e
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: greet
+  - action: utter_greet_again
+- story: Story from Conversation ID 9d5e0f7fde964b9993f46a7acf645841
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_happy
+  - action: utter_happy
+  - intent: faq
+  - action: utter_faq

@@ -8,6 +8,18 @@ stories:
       hi robot
     intent: greet
   - action: utter_greet
+
+- story: Story from Conversation ID 2c421c8d47ce4a22bd0a9802d78bd8e6
+  steps:
+  - intent: greet
+    user: |-
+      hi
+  - action: utter_greet
+  - intent: mood_happy
+    user: |-
+      i'm alright
+  - action: utter_happy
+
     
 - story: greet, confirm person is happy
   steps: 
@@ -17,7 +29,7 @@ stories:
   - action: utter_greet
   - user: |
       amazing
-    intent: mood_great
+    intent: mood_happy
   - action: utter_happy  
 
 - story: cheer person up if they are sad

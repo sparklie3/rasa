@@ -3,11 +3,15 @@ session_config:
   carry_over_slots_to_new_session: true
 intents:
 - yes_to_position
-- no_to_contact_or_position
-- maybe
-- no_resume_right_now
+- no_to_position
+- maybe_to_position
+- no_to_resume
 - yes_to_call
-- career_exploration
+- career_exploration/change_role
+- career_exploration/more_money
+- career_exploration/less_bureaucracy
+- career_exploration/more_stability
+- career_exploration/promotion
 - affirm
 - deny
 - stop
@@ -17,10 +21,39 @@ intents:
 - mood_unhappy
 - faq
 - change_jobs+more_money
+- no_resume_right_now
+- career_exploration_general
+- career_exploration_target_role
+- career_exploration_smaller_company
+- career_exploration_larger_company
+- career_exploration
+entities:
+- PERSON
+- time
+- number
+- amount-of-money
+slots:
+  active_looking:
+    type: bool
+    influence_conversation: true
+  requested_slot:
+    type: unfeaturized
+    influence_conversation: false
+  target_large_company:
+    type: text
+    influence_conversation: false
+  target_role:
+    type: text
+    influence_conversation: false
+  target_salary:
+    type: text
+    influence_conversation: false
 responses:
+  utter_generated_text:
+  - text: This is what's an generated - {option1}
   utter_greet:
-  - text: Hi there! I'm a chatbot that can help you be a better recruiter. How are
-      you?
+  - text: Hi there! I'm a recruiterbot that can help you find your next role.  How
+      are you?
   utter_schedule_call:
   - text: Great, how about this afternoon @ 3 pm EST time?
   - text: Can we hope on a call?
@@ -33,49 +66,86 @@ responses:
   utter_wait_for_resume:
   - text: Sure, I'll wait for your resume. You can send it to abc@gmail.com
   - text: Sure, send me your resume when you are ready.
-  - text: Sure, let me know whne you're ready to submit it.
+  - text: Sure, let me know when you're ready to submit it.
   utter_ignore_resume:
   - text: That'a okay.
   - text: It's okay if you don't have one handy.
   - text: We can worry about it later.
   utter_career_exploration/general:
+  - text: What is important to you in your next role?
+  - text: What is you dream job? Why?
+  - text: What jobs might you be considering right now?
+  - text: What do you definitely not want to do?
+  - text: What jobs or positions spark your curiosity?
+  - text: What do you have to offer?
   - text: What are you looking to do next?
   - text: If money was no object, what would you do?
-  - text: What excites you right now
-  - text: If this isn’t a right role, what would your ideal role look like?
-  - text: What are companies you’re actively recruiting with?
+  - text: What excites you right now?
+  - text: What would your ideal role look like?
   - text: What would make you move roles?
-  - text: What else are you interested in?
-  - text: Tell me more
-  utter_career_exploration/change_jobs:
-  - text: So you are looking to change to a new type of role. Anything else?
+  utter_career_exploration/change_role:
+  - text: I think you're looking to change to a new type of role. Do something different.
+      Am I correct?
   utter_career_exploration/more_money:
-  - text: So you're looking for a raise. Anything else?
+  - text: I think you're looking for a raise, or at least learn more than you do now.
+      Am I correct?
   utter_career_exploration/promotion:
-  - text: So you're looking for a promotion. Anything else?
+  - text: I think you're looking for a promotion, the title is important to you. Am
+      I correct?
   utter_career_exploration/more_stability:
-  - text: So you're looking for a larger company. Anything else?
+  - text: I think you're looking to join a larger company. You're looking for that
+      stability. Am I correct?
   utter_career_exploration/less_bureaucracy:
-  - text: So you're looking for a smaller company. Anything else?
+  - text: I think you're looking for a smaller company, but through the bureaucracy.
+      Am I correct?
   utter_affirm_career_move_follow_up:
-  - text: Got it. I think I know
+  - text: Got it. Anything else you'd like to share?
+  utter_ask_career_exploration_form_target_large_company:
+  - text: Do you want to work at a larger company?
+  - text: Do you want to work at a more stable company?
+  - text: Do you want to work at a more well-known company?
+  utter_ask_career_exploration_form_target_role:
+  - text: What kind of field do you want to work in or what role are you looking for?
+  utter_ask_career_exploration_form_target_salary:
+  - text: What kind of salary range are you looking for?
   utter_stop:
-  - text: Sorry. I tried my best, but I'm still learning.
+  - text: Sorry. That probably wasn't the respone you were looking for. Still learning
+      to be a better bot.
   utter_goodbye:
   - text: Okay. I'll go now. Bye!
   utter_happy:
   - text: Great to hear your in a good mood?
   utter_unhappy:
-  - text: Sorry to hear your unhappy. Maybe I can still help you to get a life insurance
-      quote.
+  - text: Sorry to hear your unhappy. Maybe I can still help you?
   utter_cheer_up:
-  - text: Sorry to hear your unhappy. Don't let it get to you.
+  - text: Don't let it get to you.
   utter_did_that_help:
   - text: Did that help?
   utter_ask_continue:
   - text: Do you want to continue?
   utter_faq:
-  - text: I can help you write better emails to candidates.
+  - text: Well, I can try to help you apply for a specific job or explore your general
+      career interest. What would you like?
+  utter_greet_again:
+  - text: Hmmm...I said hello already. Maybe there's something else you want to do
+      besides test me?
 actions:
-  - action_find_career_response
-  - ActionCheckRestaurants
+- action_find_career_response
+- action_generate_text
+forms:
+  career_exploration_form:
+    active_looking:
+    - intent: career_exploration_general, career_exploration_larger_company, career_exploration_smaller_company
+      type: from_trigger_intent
+      value: true
+    target_large_company:
+    - intent: career_exploration_larger_company
+      not_intent: career_exploration_smaller_company
+      type: from_intent
+      value: large
+    target_role:
+    - intent: career_exploration_target_role
+      type: from_text
+    target_salary:
+    - entity: amount_of_money
+      type: from_text

@@ -2,16 +2,18 @@ version: "2.0"
 nlu:
 - intent: yes_to_position
   examples: |
-    - Yes, I'm interested. Tell me more.
+    - Yes, I'm interested. Tell me more. I have a salary minimum salary requirement of [$100K]{"entity":"amount-of-money"}
     - This position sounds great.
     - Thanks for reaching out. I'm interested.
     - I'm interested, can you schedule time on my calendly link?
-- intent: no_to_contact_or_position
+    - i'm interested, tell me more
+- intent: no_to_position
   examples: |
     - No, don't contact me
     - Go away
     - I'm not interested
-- intent: maybe
+    - i'm not interested in this position
+- intent: maybe_to_position
   examples: |
     - Yes, but not this position doesn't sound like the right one for me.
     - No, maybe later. Let's stay in touch
@@ -19,7 +21,7 @@ nlu:
     - I don't think I have the right experience for the role.
     - Can you tell me who the company is?
     - Can you send me more details, such as the job description to my email?
-- intent: no_resume_right_now
+- intent: no_to_resume
   examples: |
     - I don't have one handy
     - How do I sent you my resume if I don't have it right now?
@@ -36,24 +38,25 @@ nlu:
     - how do I go schedule that call with you
     - do you have an scheduling app
     - are you available this afternoon
-- intent: career_exploration/change_jobs
+- intent: career_exploration_target_role
   examples: |
     - i'm looking to dabble in video production
     - I'm looking to change to a new role in design
     - I'm looking to transition to product management
     - i want to get a job as a front-end engineer
+    - i'd bake bread
 - intent: career_exploration/more_money
   examples: |
     - i'm looking for more money
-    - I'm looking for something between $130K and $160K
+    - I'm looking for something between [$130K]{"entity":"amount-of-money"} and [$160K]{"entity":"amount-of-money"}
     - I need cash, not stock options that are worthless
-    - The role has to make at least $130K
+    - The role has to make at least [$130K]{"entity":"amount-of-money"}
 - intent: career_exploration/promotion
   examples: |
     - I'm looking more responsibility
     - I'm looking for a managerial role.
     - I want to go into management.
-- intent: career_exploration/more_stability
+- intent: career_exploration_larger_company
   examples: |
     - get me out of this hell hole
     - there's been lots of layoffs recently
@@ -62,23 +65,21 @@ nlu:
     - there's been too much turnover
     - the moral is really low
     - Lots of people are leaving and I'm thinking about it too
-- intent: career_exploration/less_bureaucracy
+    - i'm be a writer
+- intent: career_exploration_smaller_company
   examples: |
     - I want to try to see what a startup is like
     - I'm looking to join a smaller company where I have more impact
     - I'm looking for a boss who doesn't micromanage me
     - I want more responsibility
-- intent: career_exploration/general
+- intent: career_exploration_general
   examples: |
     - I'm not interested in this position, but I would like to know more about other positions you think I would be a good fit for
     - I don't think this is the right job, do you have something else for this company?
     - Thanks, but no thanks. I'm looking for something different.
     - I'm not sure I'm qualified for this position.
-- intent: change_jobs+more_money
-  examples: |
-    - I'm looking to change a new role in design. I'm looking for a salary in the range of 120K to 140K.
-    - I'm looking to transition to product management so I can make more money.
-    - I don't like my current role and I'm underpaid. Show me the money.
+    - help me with a new job
+    - find me my next role
 - intent: affirm
   examples: |
     - yes
@@ -87,6 +88,8 @@ nlu:
     - of course
     - that sounds good
     - correct
+    - okay tell me more
+    - can we continue
 - intent: deny
   examples: |
     - no
@@ -144,6 +147,7 @@ nlu:
     - see you around
     - bye bye
     - see you later
+    - thanks, that's it. bye
 - intent: mood_happy
   examples: |
     - perfect
@@ -160,6 +164,9 @@ nlu:
     - so so perfect
     - so good
     - so perfect
+    - okay
+    - i'm good
+    - i'm alright
 - intent: mood_unhappy
   examples: |
     - my day was horrible
@@ -176,8 +183,12 @@ nlu:
     - extremly sad
     - so saad
     - so sad
+    - i'm okay
 - intent: faq
   examples: |
     - what can you help me with?
     - what can you do?
     - I want to learn more about you
+    - what do you do
+    - what can you do
+    - what can you do for me
