@@ -21,15 +21,9 @@ stories:
   - action: utter_wait_for_resume
 - story: activate form for career exploration
   steps:
-  - intent: career_exploration/general
+  - intent: career_exploration_general
   - action: career_exploration_form
   - active_loop: career_exploration_form
-  - slot_was_set:
-    - requested_slot: active_looking
-  - slot_was_set:
-    - requested_slot: target_role
-  - slot_was_set:
-    - requested_slot: target_salary
 - story: general career exploration
   steps:
   - intent: career_exploration/change_role

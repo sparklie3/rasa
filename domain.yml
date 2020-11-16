@@ -7,7 +7,6 @@ intents:
 - maybe_to_position
 - no_to_resume
 - yes_to_call
-- career_exploration
 - career_exploration/change_role
 - career_exploration/more_money
 - career_exploration/less_bureaucracy
@@ -23,6 +22,11 @@ intents:
 - faq
 - change_jobs+more_money
 - no_resume_right_now
+- career_exploration_general
+- career_exploration_target_role
+- career_exploration_smaller_company
+- career_exploration_larger_company
+- career_exploration
 entities:
 - PERSON
 - time
@@ -34,6 +38,9 @@ slots:
     influence_conversation: true
   requested_slot:
     type: unfeaturized
+    influence_conversation: false
+  target_large_company:
+    type: text
     influence_conversation: false
   target_role:
     type: text
@@ -93,6 +100,14 @@ responses:
       Am I correct?
   utter_affirm_career_move_follow_up:
   - text: Got it. Anything else you'd like to share?
+  utter_ask_career_exploration_form_target_large_company:
+  - text: Do you want to work at a larger company?
+  - text: Do you want to work at a more stable company?
+  - text: Do you want to work at a more well-known company?
+  utter_ask_career_exploration_form_target_role:
+  - text: What kind of field do you want to work in or what role are you looking for?
+  utter_ask_career_exploration_form_target_salary:
+  - text: What kind of salary range are you looking for?
   utter_stop:
   - text: Sorry. That probably wasn't the respone you were looking for. Still learning
       to be a better bot.
@@ -120,12 +135,17 @@ actions:
 forms:
   career_exploration_form:
     active_looking:
-    - intent: yes_to_position
-      not_intent: no_to_position
+    - intent: career_exploration_general, career_exploration_larger_company, career_exploration_smaller_company
+      type: from_trigger_intent
+      value: true
+    target_large_company:
+    - intent: career_exploration_larger_company
+      not_intent: career_exploration_smaller_company
       type: from_intent
+      value: large
     target_role:
-    - intent: career_exploration/change_role
+    - intent: career_exploration_target_role
       type: from_text
     target_salary:
     - entity: amount_of_money
-      type: from_entity
+      type: from_text
