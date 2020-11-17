@@ -21,28 +21,9 @@ stories:
   - action: utter_wait_for_resume
 - story: activate form for career exploration
   steps:
-  - intent: career_exploration_general
+  - intent: career_exploration
   - action: career_exploration_form
   - active_loop: career_exploration_form
-- story: general career exploration
-  steps:
-  - intent: career_exploration/change_role
-  - action: utter_career_exploration/change_role
-  - intent: affirm
-  - action: utter_affirm_career_move_follow_up
-- story: general career exploration
-  steps:
-  - intent: career_exploration/change_role
-  - action: utter_career_exploration/change_role
-  - intent: deny
-- story: general career exploration
-  steps:
-  - intent: career_exploration/change_role
-  - action: utter_career_exploration/change_role
-  - intent: affirm
-  - action: utter_affirm_career_move_follow_up
-  - intent: career_exploration
-  - action: utter_career_exploration
 - story: yes, interest in position and don't have resume right now
   steps:
   - intent: yes_to_position
@@ -74,19 +55,19 @@ stories:
   - action: utter_did_that_help
   - intent: deny
   - action: utter_goodbye
-- story: Story from Conversation ID 1c6242f9c13c4790b9869352a01f88d8
+- story: greet, answer faq
   steps:
   - intent: greet
   - action: utter_greet
   - intent: faq
   - action: utter_faq
-- story: Story from Conversation ID d7a4b24f3fd845858789c3c7bf75ce2e
+- story: greet, greet again
   steps:
   - intent: greet
   - action: utter_greet
   - intent: greet
   - action: utter_greet_again
-- story: Story from Conversation ID 9d5e0f7fde964b9993f46a7acf645841
+- story: greet, confirm happy, answer faq
   steps:
   - intent: greet
   - action: utter_greet
@@ -94,3 +75,17 @@ stories:
   - action: utter_happy
   - intent: faq
   - action: utter_faq
+- story: career exploration, confirm looking
+  steps:
+  - intent: career_exploration
+  - action: career_exploration_form
+  - active_loop: career_exploration_form
+  - slot_was_set:
+    - active_looking_value:true: null
+- story: greet then activate career exploration form
+  steps:
+  - intent: greet+career_exploration
+  - action: utter_greet
+  - action: utter_career_exploration_start
+  - action: career_exploration_form
+  - active_loop: career_exploration_form

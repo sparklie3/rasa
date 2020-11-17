@@ -2,16 +2,19 @@ version: "2.0"
 nlu:
 - intent: yes_to_position
   examples: |
-    - Yes, I'm interested. Tell me more. I have a salary minimum salary requirement of [$100K]{"entity":"amount-of-money"}
+    - Yes, I'm interested. Tell me more. I have a salary minimum salary requirement of [$100K](amount-of-money)
     - This position sounds great.
     - Thanks for reaching out. I'm interested.
     - I'm interested, can you schedule time on my calendly link?
     - i'm interested, tell me more
+    - i'm interested in a new position
 - intent: no_to_position
   examples: |
     - No, don't contact me
     - Go away
     - I'm not interested
+- intent: no_to_contact_or_position
+  examples: |
     - i'm not interested in this position
 - intent: maybe_to_position
   examples: |
@@ -45,13 +48,14 @@ nlu:
     - I'm looking to transition to product management
     - i want to get a job as a front-end engineer
     - i'd bake bread
-- intent: career_exploration/more_money
+    - anything with design
+- intent: career_exploration_more_money
   examples: |
     - i'm looking for more money
-    - I'm looking for something between [$130K]{"entity":"amount-of-money"} and [$160K]{"entity":"amount-of-money"}
+    - I'm looking for something between [$130K](amount-of-money) and [$160K](amount-of-money)
     - I need cash, not stock options that are worthless
-    - The role has to make at least [$130K]{"entity":"amount-of-money"}
-- intent: career_exploration/promotion
+    - The role has to make at least [$130K](amount-of-money)
+- intent: career_exploration_promotion
   examples: |
     - I'm looking more responsibility
     - I'm looking for a managerial role.
@@ -66,13 +70,16 @@ nlu:
     - the moral is really low
     - Lots of people are leaving and I'm thinking about it too
     - i'm be a writer
+    - I'm looking for a company that has more chas
+    - i need a company that can pay
 - intent: career_exploration_smaller_company
   examples: |
     - I want to try to see what a startup is like
     - I'm looking to join a smaller company where I have more impact
     - I'm looking for a boss who doesn't micromanage me
     - I want more responsibility
-- intent: career_exploration_general
+    - i hate bureaucracy
+- intent: career_exploration
   examples: |
     - I'm not interested in this position, but I would like to know more about other positions you think I would be a good fit for
     - I don't think this is the right job, do you have something else for this company?
@@ -80,6 +87,27 @@ nlu:
     - I'm not sure I'm qualified for this position.
     - help me with a new job
     - find me my next role
+    - hel pme find a job
+    - help me find a job
+    - help me find a new job
+    - career exploration
+    - help me with career exploration
+    - help me with my career
+    - explore career
+    - help me explore my career options
+    - explore new careers
+    - explore my career interests
+    - career explore now
+    - help explore my career
+    - i'm interested in getting a job
+    - i'm looking for a new role
+    - yes, i'm actively looking for a role of [$150K](amount-of-money)[$150K](amount-of-money)
+    - yes, i'm open to a new position, if it makes [$100K](amount-of-money)[$100K](amount-of-money)
+    - i'm looking for a new career
+    - okay, explore career then
+    - help me with exploring a career
+    - wait, come back you're suppose to help me
+    - [$50K](amount-of-money)
 - intent: affirm
   examples: |
     - yes
@@ -134,6 +162,8 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
+    - hi bot
+    - hhii
 - intent: goodbye
   examples: |
     - good afternoon
@@ -167,6 +197,8 @@ nlu:
     - okay
     - i'm good
     - i'm alright
+    - good
+    - I'm doing very well
 - intent: mood_unhappy
   examples: |
     - my day was horrible
@@ -192,3 +224,9 @@ nlu:
     - what do you do
     - what can you do
     - what can you do for me
+    - what do you do?
+    - good, what can you help me with
+    - so, what can you do
+- intent: greet+career_exploration
+  examples: |
+    - hey i just graduated. i'm looking for a new job as an entry level programmer
