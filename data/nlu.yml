@@ -72,6 +72,7 @@ nlu:
     - i'm be a writer
     - I'm looking for a company that has more chas
     - i need a company that can pay
+    - Looking to work at [Apple](amount-of-money).
 - intent: career_exploration_smaller_company
   examples: |
     - I want to try to see what a startup is like
@@ -108,6 +109,7 @@ nlu:
     - help me with exploring a career
     - wait, come back you're suppose to help me
     - [$50K](amount-of-money)
+    - Can you hook me up with a job at [Electric.ai](amount-of-money)
 - intent: affirm
   examples: |
     - yes
@@ -118,6 +120,7 @@ nlu:
     - correct
     - okay tell me more
     - can we continue
+    - YUP
 - intent: deny
   examples: |
     - no
@@ -126,6 +129,7 @@ nlu:
     - I don't think so
     - don't like that
     - no way
+    - Not yet.
 - intent: stop
   examples: |
     - ok then you cant help me
@@ -164,6 +168,7 @@ nlu:
     - good afternoon
     - hi bot
     - hhii
+    - sup
 - intent: goodbye
   examples: |
     - good afternoon
@@ -230,3 +235,4 @@ nlu:
 - intent: greet+career_exploration
   examples: |
     - hey i just graduated. i'm looking for a new job as an entry level programmer
+    - Hey. Can you help me find a job at a Fortune 500 company?

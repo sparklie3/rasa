@@ -89,3 +89,10 @@ stories:
   - action: utter_career_exploration_start
   - action: career_exploration_form
   - active_loop: career_exploration_form
+- story: greet and activate career exploration for larger company
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: career_exploration_larger_company
+  - action: career_exploration_form
+  - active_loop: career_exploration_form

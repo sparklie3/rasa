@@ -58,3 +58,24 @@ stories:
     intent: faq
   - action: utter_faq
   
+  
+- story: Story from Conversation ID cfe5b6f2b55b410d85aee4e308109343
+  steps:
+  - intent: greet+career_exploration
+    user: |-
+      Hi. I'm looking for a job at a Fortune 500 company.
+  - action: utter_greet
+  - action: utter_career_exploration_start
+  - action: career_exploration_form
+  - active_loop: career_exploration_form
+  - slot_was_set:
+    - requested_slot: active_looking
+  - intent: deny
+    user: |-
+      Not yet.
+  - action: action_default_fallback
+  - intent: restart
+    user: |-
+      /restart
+  - action: action_restart
+

@@ -33,6 +33,7 @@ entities:
 - time
 - number
 - amount-of-money
+- city
 slots:
   active_looking:
     type: bool
@@ -40,6 +41,9 @@ slots:
   active_looking_value:true:
     type: unfeaturized
     influence_conversation: false
+  location:
+    type: text
+    influence_conversation: true
   requested_slot:
     type: unfeaturized
     influence_conversation: false
@@ -115,6 +119,7 @@ responses:
   - text: What kind of salary range are you looking for?
   utter_ask_active_looking:
   - text: Have you actively applied for new roles?
+  - text: Are you actively looking for new roles?
   utter_stop:
   - text: Sorry. That probably wasn't the respone you were looking for. Still learning
       to be a better bot.
@@ -141,17 +146,24 @@ responses:
   utter_career_exploration_start:
   - text: Okay, it sounds like you want me to help you explore your career options.
       I'm going to be asking you a series of questions.
+  utter_ask_location:
+  - text: What city do you want to work in?
 actions:
 - action_find_career_response
 - action_generate_text
 forms:
   career_exploration_form:
     active_looking:
-    - intent: career_exploration, career_exploration_larger_company, career_exploration_smaller_company
+    - intent: career_exploration, career_exploration_larger_company, career_exploration_smaller_company,
+        greet+career_exploration, affirm
+      not_intent: deny
       type: from_trigger_intent
       value: true
+    location:
+    - entity: city
+      type: from_entity
     target_large_company:
-    - intent: career_exploration_larger_company
+    - intent: career_exploration_larger_company, affirm
       not_intent: career_exploration_smaller_company
       type: from_intent
       value: large
